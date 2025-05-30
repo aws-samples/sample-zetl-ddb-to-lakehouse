@@ -1,0 +1,28 @@
+{
+  "Version" : "2012-10-17",
+  "Statement" : [ {
+    "Effect" : "Allow",
+    "Principal" : {
+      "AWS" : "arn:aws:iam::<ACCOUNT-ID>:user/mkagraw"
+    },
+    "Action" : "glue:CreateInboundIntegration",
+    "Resource" : [ "arn:aws:glue:us-east-1:<ACCOUNT-ID>:catalog", "arn:aws:glue:us-east-1:<ACCOUNT-ID>:database/customerdb" ],
+    "Condition" : {
+      "StringLike" : {
+        "aws:SourceArn" : "arn:aws:dynamodb:us-east-1:<ACCOUNT-ID>:table/CustomerAccounts"
+      }
+    }
+  }, {
+    "Effect" : "Allow",
+    "Principal" : {
+      "Service" : "glue.amazonaws.com"
+    },
+    "Action" : "glue:AuthorizeInboundIntegration",
+    "Resource" : [ "arn:aws:glue:us-east-1:<ACCOUNT-ID>:catalog", "arn:aws:glue:us-east-1:<ACCOUNT-ID>:database/customerdb" ],
+    "Condition" : {
+      "StringEquals" : {
+        "aws:SourceArn" : "arn:aws:dynamodb:us-east-1:<ACCOUNT-ID>:table/CustomerAccounts"
+      }
+    }
+  } ]
+}
