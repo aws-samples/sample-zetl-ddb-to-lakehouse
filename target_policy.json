@@ -32,7 +32,7 @@
             "Resource": [
                 "arn:aws:glue:us-east-1:<ACCOUNT-ID>:catalog",
                 "arn:aws:glue:us-east-1:<ACCOUNT-ID>:database/customerdb",
-                "arn:aws:s3:::glue-zetl-target-<ACCOUNT-ID>-us-east-1"
+                "arn:aws:s3:::glue-zetl-target-customerdb-us-east-1"
             ]
         },
         {
@@ -50,7 +50,7 @@
                 "glue:GetTable"
             ],
             "Resource": [
-                "arn:aws:s3:::glue-zetl-target-<ACCOUNT-ID>-us-east-1/customerdb/*",
+                "arn:aws:s3:::glue-zetl-target-customerdb-us-east-1/customerdb/*",
                 "arn:aws:glue:us-east-1:<ACCOUNT-ID>:catalog",
                 "arn:aws:glue:us-east-1:<ACCOUNT-ID>:table/customerdb/*",
                 "arn:aws:glue:us-east-1:<ACCOUNT-ID>:database/customerdb"
